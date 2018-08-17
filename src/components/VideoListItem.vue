@@ -27,6 +27,8 @@
 
 <style scoped>
 li {
+  padding: 10px;
+  border: 1px solid #ddd;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
