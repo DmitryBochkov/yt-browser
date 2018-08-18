@@ -1,5 +1,5 @@
 <template>
-  <li class="media my-3" @click="onVideoSelect">
+  <li class="media mb-3" @click="onVideoSelect">
     <img class="mr-3" :src="thumbnailUrl" :alt="video.snippet.title">
     <div class="media-body">
       <h5 class="mt-0 mb-1">{{ video.snippet.title }}</h5>

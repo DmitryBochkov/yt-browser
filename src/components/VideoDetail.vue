@@ -1,7 +1,7 @@
 <template>
   <div v-if="video">
-    <div>
-      <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/WQMglp-JASk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" :src="videoURL"></iframe>
     </div>
     <div class="details">
       <h4>{{ video.snippet.title }}</h4>
@@ -13,7 +13,13 @@
 <script>
   export default {
     name: 'VideoDetail',
-    props: ['video']
+    props: ['video'],
+    computed: {
+      videoURL () {
+        const videoId = this.video.id.videoId
+        return `https://www.youtube.com/embed/${videoId}`
+      }
+    }
   }
 </script>
 

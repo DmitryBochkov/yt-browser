@@ -1,8 +1,17 @@
 <template>
   <div class="container">
+
     <search-bar @termChange="onTermChange"></search-bar>
-    <video-detail :video="selectedVideo"></video-detail>
-    <video-list :videos="videos" @videoSelect="onVideoSelect"></video-list>
+
+    <div class="row">
+      <div class="col-md-8">
+        <video-detail :video="selectedVideo"></video-detail>
+      </div>
+      <div class="col-md-4">
+        <video-list :videos="videos" @videoSelect="onVideoSelect"></video-list>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -38,6 +47,9 @@ export default {
       })
         .then(response => {
           this.videos = response.data.items
+          setTimeout(() => {
+            this.selectedVideo = this.videos[0]
+          }, 1000)
         })
     },
     onVideoSelect (video) {
